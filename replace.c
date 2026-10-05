@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------*/
 /* replace.c                                                          */
-/* Author: ???                                                        */
+/* Author: Prishaa Kapasi                                             */
 /*--------------------------------------------------------------------*/
 
 #include "str.h"
@@ -21,6 +21,32 @@ static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
    /* Insert your code here. */
+   size_t replacements = 0;
+   size_t pcFromSize;
+   const char *current;
+   const char *same;
+   assert(pcLine != NULL);
+   assert(pcFrom != NULL);
+   assert(pcTo != NULL);
+   current = pcLine;
+   pcFromSize = Str_getLength(pcFrom);
+   if(*pcFrom == '\0'){
+      fputs(pcLine, stdout);
+      return 0;
+   }
+   same = Str_search(current, pcFrom);
+   while(same != NULL){
+      while(current < same){
+         putchar(*current);
+         current++;
+      }
+      fputs(pcTo, stdout);
+      current += pcFromSize;
+      replacements++;
+      same = Str_search(current, pcFrom);
+   }
+   fputs(current, stdout);
+   return replacements;
 }
 
 /*--------------------------------------------------------------------*/
@@ -55,9 +81,9 @@ int main(int argc, char *argv[])
    pcFrom = argv[1];
    pcTo = argv[2];
 
-   while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
-      /* Insert your code here. */
-
+   while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL){
+      uReplaceCount += replaceAndWrite(acLine, pcFrom, pcTo); 
+   }
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;
 }

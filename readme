@@ -2,7 +2,7 @@ Assignment 2 readme File
 
 ------------------------------------------------------------------------
 What is your name?
-
+Prishaa Kapasi
 
 
 ------------------------------------------------------------------------
@@ -12,7 +12,7 @@ in the "Policies" web page (also available on armlab in the file
 ~cos217/AuthorizedSourcesList ) to this section of the readme file,
 and edit it as appropriate.
 
-
+Used precept packets to look at format of code
 
 ------------------------------------------------------------------------
 What unauthorized sources of information did you use to complete the
@@ -26,7 +26,7 @@ interaction, may additionally require the interaction being reported
 to the Committee on Discipline. Write "None" if you used no
 unauthorized sources of information.
 
-
+None
 
 ------------------------------------------------------------------------
 In fulfillment of the requirement from section 2.4.3 of the Academic
@@ -36,7 +36,7 @@ enter your name in the space below the following affirmation:
 This paper represents my own work in accordance with University
 regulations.
 
-
+Prishaa Kapasi
 
 ------------------------------------------------------------------------
 In fulfillment of the requirement from section 2.4.6 of the Academic
@@ -44,12 +44,13 @@ Regulations in Princeton's Rights, Rules, Responsibilities guide,
 and the COS 217 Generative AI policy, disclose and describe how you
 used AI in completing this assignment:
 
-
+I used AI to help debug code and then also refresh my memory on pointers
+and pointer syntax before beginning the pointer file.
 
 ------------------------------------------------------------------------
 What is your assessment of the assignment? Was it helpful? Was it fun?
 
-
+Helpful, fun until the replace.c at that point it felt like too much
 
 ------------------------------------------------------------------------
 (optional) What information can you provide about your submission that
@@ -64,7 +65,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on stra.c, and what are your
@@ -73,14 +74,14 @@ your disagreement after each warning. If there are no warnings, then
 write "None."
 
 
-
+None.
 ------------------------------------------------------------------------
 What warnings does splint generate on strp.c, and what are your
 disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on strp.c, and what are your
@@ -88,7 +89,7 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does splint generate on replace.c, and what are your
@@ -96,7 +97,7 @@ disagreements with them? Copy the splint warnings here, and express your
 disagreement after each warning. If there are no warnings, then write
 "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 What warnings does critTer generate on replace.c, and what are your
@@ -104,13 +105,18 @@ disagreements with them? Copy the critTer warnings here, and express
 your disagreement after each warning. If there are no warnings, then
 write "None."
 
-
+None.
 
 ------------------------------------------------------------------------
 Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
 
-
+No because you can't use sizeOf because that just shows the byte space
+of a pointer and the length of a string isn't neccessarily equal to
+how much space there is in the memory area. One concrete example is that
+a memory area can have the string Hi Prishaa stored but still have
+80 more spots and lengthOf doesn't calculate those extra spots while
+sizeOf would just give size of pointer which is 8 bytes.
 
 ------------------------------------------------------------------------
