@@ -35,3 +35,22 @@ char *Str_concat(char pcDst[], const char  pcSrc[]){
    pcDst[dstPosition] = '\0';
    return pcDst;
 }
+
+int Str_compare(const char pcS1[], const char pcS2[]){
+   size_t n = 0;
+   int compare = 0; 
+   assert(pcS1 != NULL);
+   assert(pcS2 != NULL);
+   while ((pcS1[n]!= '\0') || (pcS2[n]!= '\0')){
+      if(pcS1[n] > pcS2[n]){
+         compare = 1;
+         break;
+      }
+      if(pcS1[n] < pcS2[n]){
+         compare = -1;
+         break;
+      }
+      n++;
+   }
+   return compare;
+}
