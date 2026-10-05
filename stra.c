@@ -1,3 +1,4 @@
+/* stra.c file Prishaa Kapasi */
 #include <assert.h>
 #include "str.h"
 size_t Str_getLength(const char pcSrc[])
@@ -72,9 +73,11 @@ char *Str_search(const char pcHaystack[], const char pcNeedle[]){
          }
       }
       else{
+         n = n - substringIndex + 1;
          substringIndex = 0;
+         continue;
       }
       n++;
    }
-   return 0; 
+   return NULL; 
 }
