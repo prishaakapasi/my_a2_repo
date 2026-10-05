@@ -1,5 +1,7 @@
+/* Strp.c File Prishaa Kapasi */
 #include <assert.h>
 #include "str.h"
+
 size_t Str_getLength(const char *pcSrc)
 {
    const char *pcEnd;
@@ -22,4 +24,21 @@ char *Str_copy(char *pcDst, const char *pcSrc){
    }
    *pcDst = '\0';
    return pcStart;
+}
+
+char *Str_concat(char *pcDst, const char *pcSrc){
+   char *pcDstEnd;
+   assert(pcDst != NULL);
+   assert(pcSrc != NULL);
+   pcDstEnd = pcDst;
+   while(*pcDstEnd != '\0'){
+      pcDstEnd++;
+   }
+   while(*pcSrc != '\0'){
+      *pcDstEnd = *pcSrc;
+      pcSrc++;
+      pcDstEnd++;
+   }
+   *pcDstEnd = '\0';
+   return pcDst;
 }
