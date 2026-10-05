@@ -42,3 +42,25 @@ char *Str_concat(char *pcDst, const char *pcSrc){
    *pcDstEnd = '\0';
    return pcDst;
 }
+
+int Str_compare(const char *pcS1, const char *pcS2){
+   const char *pointerS1;
+   const char *pointerS2;
+   assert(pcS1 != NULL);
+   assert(pcS2 != NULL);
+   pointerS1 = pcS1;
+   pointerS2 = pcS2;
+   while((*pointerS1 != '\0') || (*pointerS2 != '\0')){
+      if(*pointerS1 < *pointerS2){
+            return -1;
+      }
+      else if(*pointerS1 > *pointerS2){
+            return 1;
+      }
+      pointerS1++;
+      pointerS2++;
+  }
+  return 0; 
+}
+
+
