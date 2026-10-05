@@ -63,4 +63,27 @@ int Str_compare(const char *pcS1, const char *pcS2){
   return 0; 
 }
 
-
+char *Str_search(const char *pcHaystack, const char *pcNeedle){
+   const char *pcStart;
+   const char *pcNeedleStart;
+   assert(pcHaystack != NULL);
+   assert(pcNeedle != NULL);
+   pcStart = pcHaystack;
+   pcNeedleStart = pcNeedle;
+   if(*pcNeedleStart == '\0'){
+      return (char *)pcHaystack;
+   }
+   while(*pcStart != '\0'){
+      pcHaystack = pcStart;
+      pcNeedle = pcNeedleStart;
+      while((*pcNeedle != '\0') && (*pcHaystack == *pcNeedle)){
+         pcNeedle++;
+         pcHaystack++;
+      }
+      if(*pcNeedle == '\0'){
+         return (char *)pcStart;
+      }
+      pcStart++;
+   }
+   return NULL;
+}
