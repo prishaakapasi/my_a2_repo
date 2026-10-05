@@ -54,3 +54,27 @@ int Str_compare(const char pcS1[], const char pcS2[]){
    }
    return compare;
 }
+
+char *Str_search(const char pcHaystack[], const char pcNeedle[]){
+   size_t n = 0;
+   size_t substringIndex = 0;
+   assert(pcHaystack != NULL);
+   assert(pcNeedle != NULL);
+   if(pcNeedle[0] == '\0'){
+      return (char *) pcHaystack;
+   }
+   while(pcHaystack[n] != '\0'){
+      if(pcHaystack[n] == pcNeedle[substringIndex]){
+         substringIndex++;
+
+         if(pcNeedle[substringIndex] == '\0'){
+            return (char *)&pcHaystack[n - substringIndex + 1];
+         }
+      }
+      else{
+         substringIndex = 0;
+      }
+      n++;
+   }
+   return 0; 
+}
